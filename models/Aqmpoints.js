@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Aqmpoint = mongoose.Schema;
 
 const postSchema = new Aqmpoint({
+user: { type: mongoose.Schema.ObjectId, ref: "User" },
 aqm: {  
     r3000: Number,
     r5000: Number,
@@ -15,7 +16,7 @@ gps: {
     gps_time: String,
     latitude: String,
     longitude: String
-}
+},
 });
 
 module.exports = mongoose.model('Aqmpoint', postSchema);
